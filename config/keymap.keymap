@@ -56,11 +56,11 @@
 
         layer_0 {
             bindings = <
-&trans  &trans                &trans              &trans                  &trans           &trans                                      &trans       &trans           &trans                  &trans              &trans             &trans
-&trans  &kp Q                 &kp L               &kp U                   &kp PERIOD       &kp MINUS                                   &kp F        &kp R            &kp Y                   &kp W               &kp P              &trans
-&trans  &kp E                 &new_ht LEFT_ALT I  &new_ht LEFT_CONTROL A  &new_ht RSHFT O  &kp COMMA    &trans          &trans         &kp K        &new_ht RSHFT T  &new_ht LEFT_CONTROL N  &new_ht LEFT_ALT S  &kp H              &trans
-&trans  &new_ht LEFT_SHIFT J  &kp X               &kp C                   &kp V            &kp SLASH    &msc SCRL_DOWN  &msc SCRL_UP   &kp G        &kp D            &kp M                   &kp Z               &mt RIGHT_SHIFT B  &trans
-&trans  &kp LCTRL             &kp LEFT_ALT        &kp LEFT_GUI            &lt 1 TAB        &lt 2 SPACE  &mkp LCLK       &kp BACKSPACE  &lt 3 ENTER  &trans           &trans                  &trans              &trans             &trans
+&trans  &trans                &trans              &trans                  &trans           &trans                                      &trans       &trans           &trans                  &trans              &trans                 &trans
+&trans  &kp Q                 &kp W               &kp U                   &kp R            &kp T                                       &kp Y        &kp U            &kp I                   &kp O               &kp P                  &trans
+&trans  &kp A                 &new_ht LEFT_ALT S  &new_ht LEFT_CONTROL D  &new_ht RSHFT F  &kp G        &trans          &trans         &kp H        &new_ht RSHFT J  &new_ht LEFT_CONTROL K  &new_ht LEFT_ALT L  &kp MINUS              &trans
+&trans  &new_ht LEFT_SHIFT Z  &kp X               &kp C                   &kp V            &kp B        &msc SCRL_DOWN  &msc SCRL_UP   &kp N        &kp M            &kp COMMA               &kp PERIOD          &mt RIGHT_SHIFT SLASH  &trans
+&trans  &kp LCTRL             &kp LEFT_ALT        &kp LEFT_GUI            &lt 1 TAB        &lt 2 SPACE  &mkp LCLK       &kp BACKSPACE  &lt 3 ENTER  &trans           &trans                  &trans              &trans                 &trans
             >;
         };
 
