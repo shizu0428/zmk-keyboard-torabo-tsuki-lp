@@ -4,39 +4,36 @@
 #include <dt-bindings/zmk/pointing.h>
 
 / {
+    /* * 入力プロセッサの定義
+     */
+    
+    // レイヤー1：水平スクロール (X軸の動きを水平スクロールに変換)
+    input_processor_hor_scroll {
+        compatible = "zmk,input-processor-temp-layer";
+        label = "INPUT_PROC_HOR_SCROLL";
+        #input-processor-cells = <0>;
+        target-layers = <1>;
+        input-processors = <&zip_x_to_scroll_mapper>; 
+    };
+
+    // レイヤー2：垂直スクロール (Y軸の動きを垂直スクロールに変換)
+    input_processor_ver_scroll {
+        compatible = "zmk,input-processor-temp-layer";
+        label = "INPUT_PROC_VER_SCROLL";
+        #input-processor-cells = <0>;
+        target-layers = <2>;
+        input-processors = <&zip_y_to_scroll_mapper>;
+    };
+
     combos {
         compatible = "zmk,combos";
-
-        bt_clear {
-            bindings = <&bt BT_CLR>;
-            key-positions = <28 29>;
-            layers = <2>;
-        };
-
-        esc {
-            bindings = <&kp ESCAPE>;
-            key-positions = <13 14>;
-        };
-
-        del {
-            bindings = <&kp DEL>;
-            key-positions = <22 21>;
-        };
-
-        mb2 {
-            bindings = <&mkp MB2>;
-            key-positions = <48 49>;
-        };
-
-        mb3 {
-            bindings = <&mkp MB3>;
-            key-positions = <47 49>;
-        };
-
-        mb1 {
-            bindings = <&mkp MB1>;
-            key-positions = <47 48>;
-        };
+        // ... (既存のコンボ定義はそのまま)
+        bt_clear { bindings = <&bt BT_CLR>; key-positions = <28 29>; layers = <2>; };
+        esc { bindings = <&kp ESCAPE>; key-positions = <13 14>; };
+        del { bindings = <&kp DEL>; key-positions = <22 21>; };
+        mb2 { bindings = <&mkp MB2>; key-positions = <48 49>; };
+        mb3 { bindings = <&mkp MB3>; key-positions = <47 49>; };
+        mb1 { bindings = <&mkp MB1>; key-positions = <47 48>; };
     };
 
     behaviors {
@@ -44,7 +41,6 @@
             compatible = "zmk,behavior-hold-tap";
             label = "NEW_HT";
             bindings = <&kp>, <&kp>;
-
             #binding-cells = <2>;
             tapping-term-ms = <200>;
             flavor = "tap-preferred";
@@ -56,25 +52,27 @@
 
         layer_0 {
             bindings = <
-&trans  &trans                &trans              &trans                  &trans           &trans                                      &trans       &trans           &trans                  &trans              &trans                 &trans
-&trans  &kp Q                 &kp W               &kp E                   &kp R            &kp T                                       &kp Y        &kp U            &kp I                   &kp O               &kp P                  &trans
+&trans  &trans                &trans              &trans              &trans                  &trans                                      &trans       &trans           &trans                  &trans              &trans                 &trans
+&trans  &kp Q                 &kp W               &kp E               &kp R                   &kp T                                       &kp Y        &kp U            &kp I                   &kp O               &kp P                  &trans
 &trans  &kp A                 &new_ht LEFT_ALT S  &new_ht LEFT_CONTROL D  &new_ht RSHFT F  &kp G        &trans          &trans         &kp H        &new_ht RSHFT J  &new_ht LEFT_CONTROL K  &new_ht LEFT_ALT L  &kp MINUS              &trans
-&trans  &new_ht LEFT_SHIFT Z  &kp X               &kp C                   &kp V            &kp B        &msc SCRL_DOWN  &msc SCRL_UP   &kp N        &kp M            &kp COMMA               &kp PERIOD          &mt RIGHT_SHIFT SLASH  &trans
-&trans  &kp LCTRL             &kp LEFT_ALT        &kp LEFT_GUI            &lt 1 TAB        &lt 2 SPACE  &mkp LCLK       &kp BACKSPACE  &lt 3 ENTER  &trans           &trans                  &trans              &trans                 &trans
+&trans  &new_ht LEFT_SHIFT Z  &kp X               &kp C               &kp V                   &kp B        &msc SCRL_DOWN  &msc SCRL_UP   &kp N        &kp M            &kp COMMA               &kp PERIOD          &mt RIGHT_SHIFT SLASH  &trans
+&trans  &kp LCTRL             &kp LEFT_ALT        &kp LEFT_GUI        &lt 1 TAB               &lt 2 SPACE  &mkp LCLK       &kp BACKSPACE  &lt 3 ENTER  &trans           &trans                  &trans              &trans                 &trans
             >;
         };
 
         layer_1 {
+            /* レイヤー1 (TABホールド): 横スクロールレイヤー */
             bindings = <
-&trans  &trans            &trans         &trans            &trans      &trans                               &trans            &trans             &trans             &trans         &trans    &trans
-&trans  &kp LS(NUMBER_1)  &kp LS(SLASH)  &kp LS(NUMBER_3)  &kp LS(N5)  &kp LS(NUMBER_6)                     &kp LS(N7)        &kp LS(N8)         &kp LS(N9)         &trans         &kp PLUS  &trans
-&trans  &kp LEFT_BRACKET  &kp DOLLAR     &trans            &trans      &trans            &trans  &trans     &kp LS(NUMBER_2)  &kp RIGHT_BRACKET  &kp RIGHT_BRACKET  &kp SEMICOLON  &kp SQT   &trans
-&trans  &trans            &trans         &trans            &trans      &trans            &trans  &trans     &trans            &trans             &trans             &trans         &trans    &trans
-&trans  &trans            &trans         &trans            &trans      &trans            &trans  &kp LANG1  &kp LANG2         &trans             &trans             &trans         &trans    &trans
+&trans  &trans            &trans         &trans            &trans      &trans                                &trans            &trans             &trans             &trans         &trans    &trans
+&trans  &kp LS(NUMBER_1)  &kp LS(SLASH)  &kp LS(NUMBER_3)  &kp LS(N5)  &kp LS(NUMBER_6)                      &kp LS(N7)        &kp LS(N8)         &kp LS(N9)         &trans         &kp PLUS  &trans
+&trans  &kp LEFT_BRACKET  &kp DOLLAR     &trans            &trans      &trans            &trans  &trans      &kp LS(NUMBER_2)  &kp RIGHT_BRACKET  &kp RIGHT_BRACKET  &kp SEMICOLON  &kp SQT   &trans
+&trans  &trans            &trans         &trans            &trans      &trans            &trans  &trans      &trans            &trans             &trans             &trans         &trans    &trans
+&trans  &trans            &trans         &trans            &trans      &trans            &trans  &kp LANG1   &kp LANG2         &trans             &trans             &trans         &trans    &trans
             >;
         };
 
         layer_2 {
+            /* レイヤー2 (SPACEホールド): 縦スクロールレイヤー */
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans                                    &trans                 &trans        &trans        &trans        &trans         &trans
 &trans  &trans  &kp F7  &kp F8  &kp F9  &kp F10                                   &kp LS(N7)             &kp N7        &kp N8        &kp N9        &kp LS(EQUAL)  &trans
