@@ -1,6 +1,6 @@
-/{
 #include <input/processors.dtsi>
 
+/{
     split_inputs {
         #address-cells = <1>;
         #size-cells = <0>;
@@ -23,7 +23,6 @@
         device = <&trackball_split>;
         status = "okay";
         layers = <2>; /* レイヤー2がONの時だけ動作 */
-        
         input-processors = <
             &zip_xy_to_scroll_mapper
             &zip_scroll_scaler 3 2
