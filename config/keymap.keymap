@@ -37,6 +37,16 @@
             bindings = <&mkp MB1>;
             key-positions = <47 48>;
         };
+
+        mb1 {
+            bindings = <&mkp MB1>;
+            key-positions = <41 42>;
+        };
+
+        mb2 {
+            bindings = <&mkp MB2>;
+            key-positions = <41 40>;
+        };
     };
 
     behaviors {
