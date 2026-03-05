@@ -86,11 +86,11 @@
 
         layer_2 {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                                    &trans                 &trans        &trans        &trans        &trans         &trans
-&trans  &trans  &kp F7  &kp F8  &kp F9  &kp F10                                   &kp LS(N7)             &kp N7        &kp N8        &kp N9        &kp LS(EQUAL)  &trans
-&trans  &trans  &trans  &kp F5  &trans  &kp F11  &trans          &trans           &kp LS(DOUBLE_QUOTES)  &kp NUMBER_4  &kp N5        &kp NUMBER_6  &trans         &trans
-&trans  &trans  &trans  &kp F2  &trans  &kp F12  &msc SCRL_LEFT  &msc SCRL_RIGHT  &kp SLASH              &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp COLON      &trans
-&trans  &trans  &trans  &trans  &trans  &trans   &trans          &kp BACKSPACE    &kp ENTER              &kp N0        &trans        &kp PERIOD    &trans         &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                  &trans                 &trans        &trans        &trans        &trans         &trans
+&trans  &trans  &kp F7  &kp F8  &kp F9  &kp F10                                 &kp LS(N7)             &kp N7        &kp N8        &kp N9        &kp LS(EQUAL)  &trans
+&trans  &trans  &trans  &kp F5  &trans  &kp F11  &trans          &trans         &kp LS(DOUBLE_QUOTES)  &kp NUMBER_4  &kp N5        &kp NUMBER_6  &trans         &trans
+&trans  &trans  &trans  &kp F2  &trans  &kp F12  &msc SCRL_LEFT  &kp BACKSPACE  &kp SLASH              &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp COLON      &trans
+&trans  &trans  &trans  &trans  &trans  &trans   &trans          &kp ENTER      &trans                 &trans        &kp N0        &kp PERIOD    &trans         &trans
             >;
         };
 
