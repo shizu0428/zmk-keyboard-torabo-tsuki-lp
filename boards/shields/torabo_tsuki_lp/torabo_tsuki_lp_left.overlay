@@ -2,9 +2,21 @@
 #include <input/processors.dtsi>
 #include <dt-bindings/zmk/input_transform.h>
 
+// 1. 元々あるListener（ポインタ移動用）を無効化する
 &trackball_listener {
-    /delete-property/ input-processors;
-    input-processors =
-        <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>,
-       <&zip_temp_layer 0 100>;
+    status = "disabled";
+};
+
+// 2. 左手専用の「スクロール専用Listener」を新しく定義する
+/ {
+    left_scroll_listener: left_scroll_listener {
+        compatible = "zmk,input-listener";
+        device = <&trackball>; // 物理センサーを指定
+
+        input-processors = 
+            // 軸の反転
+            <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>,
+            // 移動をスクロールに変換（感度 2 1）
+            <&zip_scroll_scaler 2 1>;
+    };
 };
