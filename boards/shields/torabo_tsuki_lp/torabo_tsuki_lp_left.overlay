@@ -10,9 +10,7 @@
         // 2. 軸の反転（向きの調整）
         <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>,
         
-        // 3. 【重要】マウスカーソルの移動量を「0倍」にして消去する
-        <&zip_xy_scaler 1 0>, 
-        
         // 4. 移動量をスクロールに変換する（2 1 は感度）
         <&zip_scroll_scaler 2 1>;
+        <&zip_scaler 0 0>; // 全ての移動量を0にする
 };
