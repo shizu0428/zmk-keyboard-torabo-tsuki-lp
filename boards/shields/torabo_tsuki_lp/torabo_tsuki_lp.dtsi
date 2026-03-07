@@ -1,5 +1,6 @@
 #include <zephyr/dt-bindings/gpio/nordic-nrf-gpio.h>
 #include <dt-bindings/zmk/matrix_transform.h>
+#include <dt-bindings/zmk/input_transform.h>
 #include "torabo_tsuki_lp_layouts.dtsi"
 
 / {
@@ -87,8 +88,16 @@
         compatible = "zmk,cdc-acm-bootloader-trigger";
     };
 
-    trackball_listener: trackball_listener {
-            status = "disabled"; // 共通定義を無効化
+    /* リスナー（中央で有効化。周辺から来た入力もここで処理） */
+    tb_left_listener: tb_left_listener {
+        compatible = "zmk,input-listener";
+        status = "disabled";
+    };
+
+    tb_right_listener: tb_right_listener {
+        compatible = "zmk,input-listener";
+        status = "disabled";
+        device = <&tb_right_split>;
     };
 
     vbatt: vbatt {
