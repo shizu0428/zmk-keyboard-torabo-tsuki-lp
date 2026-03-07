@@ -8,3 +8,8 @@
         <&zip_scroll_scaler 2 1>,
         <&zip_xy_scaler 0 0>; // ポインタ移動を消去してスクロールのみにする
 };
+
+// 念のため、センサーそのものにもリスナーを紐付ける
+&trackball {
+    input-processors = <&zip_scroll_scaler 2 1>;
+};
