@@ -88,8 +88,7 @@
     };
 
     trackball_listener: trackball_listener {
-        compatible = "zmk,input-listener";
-        device = <&trackball>;
+            status = "disabled"; // 共通定義を無効化
     };
 
     vbatt: vbatt {
