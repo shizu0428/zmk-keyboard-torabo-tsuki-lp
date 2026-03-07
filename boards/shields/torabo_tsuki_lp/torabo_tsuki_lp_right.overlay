@@ -11,6 +11,15 @@
 };
 };
 
+/* スニペット（左手からの受信窓口）をスクロール専用に上書き */
+&trackball_split_listener {
+    /delete-property/ input-processors;
+    input-processors = 
+        <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>,
+        <&zip_scroll_scaler 2 1>, // スクロール感度
+        <&zip_scaler 0 0>;        // 移動量をゼロにしてポインタ移動を封印
+};
+
 &size_s_transform {
     col-offset = <7>;
 };
