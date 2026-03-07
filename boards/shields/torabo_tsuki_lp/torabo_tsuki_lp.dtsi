@@ -88,16 +88,10 @@
         compatible = "zmk,cdc-acm-bootloader-trigger";
     };
 
-    /* リスナー（中央で有効化。周辺から来た入力もここで処理） */
-    tb_left_listener: tb_left_listener {
-        compatible = "zmk,input-listener";
-        status = "disabled";
-    };
-
-    tb_right_listener: tb_right_listener {
-        compatible = "zmk,input-listener";
-        status = "disabled";
-        device = <&tb_right_split>;
+/* トラックボール・リスナーの基点 */
+    /* ここでは無効(disabled)にしておき、overlay側で個別に定義させる */
+    trackball_listener: trackball_listener {
+        status = "disabled"; 
     };
 
     vbatt: vbatt {
