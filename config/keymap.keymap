@@ -69,7 +69,7 @@
 &trans  &trans                &trans              &trans                  &trans           &trans                                 &trans  &trans           &trans                  &trans              &trans      &trans
 &trans  &kp Q                 &kp W               &kp E                   &kp R            &kp T                                  &kp Y   &kp U            &kp I                   &kp O               &kp P       &trans
 &trans  &kp A                 &new_ht LEFT_ALT S  &new_ht LEFT_CONTROL D  &new_ht RSHFT F  &kp G        &trans     &trans         &kp H   &new_ht RSHFT J  &new_ht LEFT_CONTROL K  &new_ht LEFT_ALT L  &kp MINUS   &trans
-&trans  &new_ht LEFT_SHIFT Z  &kp X               &kp C                   &kp V            &kp B        &mkp MB1   &kp BACKSPACE  &kp N   &kp M            &kp COMMA               &kp UP_ARROW        &kp PERIOD  &trans
+&trans  &new_ht LEFT_SHIFT Z  &kp X               &kp C                   &kp V            &kp B        &trans     &kp BACKSPACE  &kp N   &kp M            &kp COMMA               &kp UP_ARROW        &kp PERIOD  &trans
 &trans  &kp LCTRL             &kp LEFT_GUI        &kp LEFT_GUI            &lt 1 TAB        &lt 2 SPACE  &lt 1 TAB  &lt 3 ENTER    &trans  &trans           &kp LEFT                &kp DOWN_ARROW      &kp RIGHT   &trans
             >;
         };
@@ -86,11 +86,11 @@
 
         layer_2 {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                                  &trans                 &trans        &trans        &trans        &trans         &trans
-&trans  &trans  &kp F7  &kp F8  &kp F9  &kp F10                                 &kp LS(N7)             &kp N7        &kp N8        &kp N9        &kp LS(EQUAL)  &trans
-&trans  &trans  &trans  &kp F5  &trans  &kp F11  &trans          &trans         &kp LS(DOUBLE_QUOTES)  &kp NUMBER_4  &kp N5        &kp NUMBER_6  &trans         &trans
-&trans  &trans  &trans  &kp F2  &trans  &kp F12  &msc SCRL_LEFT  &kp BACKSPACE  &kp SLASH              &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp COLON      &trans
-&trans  &trans  &trans  &trans  &trans  &trans   &trans          &kp ENTER      &trans                 &trans        &kp N0        &kp PERIOD    &trans         &trans
+&trans  &trans  &trans  &trans  &trans  &trans                          &trans                 &trans        &trans        &trans        &trans         &trans
+&trans  &trans  &kp F7  &kp F8  &kp F9  &kp F10                         &kp LS(N7)             &kp N7        &kp N8        &kp N9        &kp LS(EQUAL)  &trans
+&trans  &trans  &trans  &kp F5  &trans  &kp F11  &trans  &trans         &kp LS(DOUBLE_QUOTES)  &kp NUMBER_4  &kp N5        &kp NUMBER_6  &trans         &trans
+&trans  &trans  &trans  &kp F2  &trans  &kp F12  &trans  &kp BACKSPACE  &kp SLASH              &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp COLON      &trans
+&trans  &trans  &trans  &trans  &trans  &trans   &trans  &kp ENTER      &trans                 &trans        &kp N0        &kp PERIOD    &trans         &trans
             >;
         };
 
