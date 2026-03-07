@@ -4,3 +4,6 @@ on: [push, pull_request, workflow_dispatch]
 jobs:
   build:
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@v0.3
+    with:
+      # snippetの指定を直接書く（もしbuild.yamlを使わない場合）
+      extra_args: -S "studio-rpc-usb-uart;split-trackball-listener"
