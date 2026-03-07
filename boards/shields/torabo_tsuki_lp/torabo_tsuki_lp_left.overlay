@@ -7,5 +7,4 @@
         <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>,
         <&zip_scroll_scaler 2 1>,
         <&zip_scaler 0 0>; // ポインタ移動を消去してスクロールのみにする
-    >;
 };
