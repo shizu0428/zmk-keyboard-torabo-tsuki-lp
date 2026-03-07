@@ -3,14 +3,8 @@
 #include <dt-bindings/zmk/input_transform.h>
 
 &trackball_listener {
-    // 1. 既存の設定を完全に白紙に戻す
-    /delete-property/ input-processors;
-
-    input-processors = 
-        // 2. 軸の反転（向きの調整）
-        <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>,
-        
-        // 4. 移動量をスクロールに変換する（2 1 は感度）
-        <&zip_scroll_scaler 2 1>;
-        <&zip_scaler 0 0>; // 全ての移動量を0にする
+    input-processors = <
+        &zip_xy_to_scroll_mapper
+        &zip_scroll_scaler 3 2
+    >;
 };
