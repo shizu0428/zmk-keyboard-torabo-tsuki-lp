@@ -1,0 +1,10 @@
+include:
+  - board: bmp_boost
+    shield: torabo_tsuki_lp_right
+    snippets:
+      - studio-rpc-usb-uart      # ZMK Studio用（今動いているもの）
+      - split-trackball-listener  # 左手のデータ受信用（これが必要！）
+
+  - board: bmp_boost
+    shield: torabo_tsuki_lp_left
+    # 左手はスニペット不要
