@@ -2,34 +2,38 @@
 #include <input/processors.dtsi>
 #include <dt-bindings/zmk/input_transform.h>
 
-/* 1. 【最重要】標準の「何でもマウス移動にするリスナー」を完全に無効化します */
-&trackball_listener {
-    status = "disabled";
-};
-
 / {
-    right_mouse_listener: right_mouse_listener {
-        compatible = "zmk,input-listener";
-        device = <&trackball>;
-        status = "okay";
-        input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
-};
-};
+    /* 1. まずデバイス定義を先に書く */
+    split_inputs {
+        #address-cells = <1>;
+        #size-cells = <0>;
+        trackball_split: trackball_split@0 {
+            compatible = "zmk,input-split";
+            reg = <0>;
+        };
+    };
 
-/ {
-    /* 既存のリスナーのプロパティを強制的に書き換える */
-    trackball_split_listener: trackball_split_listener {
+    /* 2. 次にリスナー定義を書く（ここで trackball_split を参照してもエラーにならない） */
+    left_scroll_listener {
         compatible = "zmk,input-listener";
-        device = <&trackball_split>; // 左手から届いた信号を指定
+        device = <&trackball_split>;
         status = "okay";
         input-processors = 
             <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>,
             <&zip_xy_to_scroll_mapper>,
-            <&zip_xy_scaler 1 1>,       // スクロールの感度（適宜調整）
             <&zip_xy_scaler 0 0>;
+    };
+
+    right_mouse_listener {
+        compatible = "zmk,input-listener";
+        device = <&trackball>;
+        status = "okay";
+        input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
     };
 };
 
+/* 標準リスナーの無効化 */
+&trackball_listener { status = "disabled"; };
 &size_s_transform {
     col-offset = <7>;
 };
