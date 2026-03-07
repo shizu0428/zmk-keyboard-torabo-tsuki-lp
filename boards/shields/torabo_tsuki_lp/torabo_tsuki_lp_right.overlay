@@ -2,6 +2,11 @@
 #include <input/processors.dtsi>
 #include <dt-bindings/zmk/input_transform.h>
 
+/* 1. 【最重要】標準の「何でもマウス移動にするリスナー」を完全に無効化します */
+&trackball_listener {
+    status = "disabled";
+};
+
 / {
     right_mouse_listener: right_mouse_listener {
         compatible = "zmk,input-listener";
@@ -13,11 +18,14 @@
 
 / {
     /* 既存のリスナーのプロパティを強制的に書き換える */
-    trackball_split_listener {
-        /delete-property/ input-processors;
+    trackball_split_listener: trackball_split_listener {
+        compatible = "zmk,input-listener";
+        device = <&trackball_split>; // 左手から届いた信号を指定
+        status = "okay";
         input-processors = 
             <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>,
-            <&zip_scroll_scaler 2 1>,
+            <&zip_xy_to_scroll_mapper>,
+            <&zip_xy_scaler 1 1>,       // スクロールの感度（適宜調整）
             <&zip_xy_scaler 0 0>;
     };
 };
