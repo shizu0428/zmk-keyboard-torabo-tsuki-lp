@@ -3,7 +3,7 @@
 #include <dt-bindings/zmk/input_transform.h>
 
 /* スニペットが生成するリスナーを探して、中身を上書きする */
-&trackball_split_listener {
+&{/trackball_split_listener} {
     input-processors = 
         <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>,
         <&zip_xy_to_scroll_mapper>,
@@ -11,7 +11,7 @@
 };
 
 /* 右手用（通常のマウス） */
-&trackball_listener {
+&{/trackball_listener} {
     input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
 };
 
