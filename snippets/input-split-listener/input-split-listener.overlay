@@ -1,3 +1,5 @@
+#include <scroll-snap.dtsi>
+
 /{
     split_inputs {
         #address-cells = <1>;
