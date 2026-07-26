@@ -2,8 +2,7 @@
     status = "okay";
     device = <&pointing_device>;
     input-processors = <
-            &zip_scroll_scaler 1 1
-            &zip_xy_transform (ZIP_INVERT_X)
+            &zip_scroll_scaler (-1) 1
             &zip_xy_transform (-60)
             >;
 };
