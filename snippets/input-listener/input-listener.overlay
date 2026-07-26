@@ -1,10 +1,10 @@
-#include <dt-bindings/zmk/input_transform.h>
+#include <input/processors/sensor_rotation.dtsi>
 
 &pointing_listener {
     status = "okay";
     device = <&pointing_device>;
     input-processors = <
         &zip_xy_transform (INPUT_TRANSFORM_X_INVERT)
-        &zip_xy_transform (-30)
             >;
+    rotation-angle = <(-24)>
 };
