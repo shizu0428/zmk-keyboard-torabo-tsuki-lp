@@ -3,6 +3,5 @@
     device = <&pointing_device>;
     input-processors = <
         &zip_xy_transform (INPUT_TRANSFORM_X_INVERT)
-        &zip_xy_transform (-60)
             >;
 };
