@@ -5,6 +5,5 @@
     device = <&pointing_device>;
     input-processors = <
         &zip_xy_transform (INPUT_TRANSFORM_X_INVERT)
-        &zip_temp_sensor_rotation (-24)
             >;
 };
