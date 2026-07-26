@@ -1,3 +1,5 @@
+#include <dt-bindings/zmk/input_transform.h>
+
 &pointing_listener {
     status = "okay";
     device = <&pointing_device>;
