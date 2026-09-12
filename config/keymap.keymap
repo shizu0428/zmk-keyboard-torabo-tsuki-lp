@@ -25,7 +25,7 @@
 
         mb2 {
             bindings = <&mkp MB2>;
-            key-positions = <46 47>;
+            key-positions = <34 35>;
         };
 
         mb3 {
@@ -46,6 +46,16 @@
         mb2lt {
             bindings = <&mkp MB2>;
             key-positions = <26 27>;
+        };
+
+        mb2-3 {
+            bindings = <&mkp MB2>;
+            key-positions = <46 47>;
+        };
+
+        mb3-2 {
+            bindings = <&mkp MB3>;
+            key-positions = <45 47>;
         };
     };
 
